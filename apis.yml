@@ -1,7 +1,28 @@
 aid: chill
 name: Chill
-description: Chill is a company surfaced as a portfolio company of 500-global and added to the API Evangelist
-  network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Chill.com is a natural-supplements and wellness marketplace — a Shopify-hosted
+  store selling premium supplements, skincare, functional beverages, and healthy
+  alternatives aimed at helping people relax, unwind, and beat stress. The store is
+  fully agent-native: it publishes an llms.txt agent guide and implements the
+  Universal Commerce Protocol (UCP) over a live MCP endpoint, letting AI shopping
+  agents search the catalog, build carts, and complete buyer-approved checkout.
+  End-user authentication is Shopify Customer Accounts (OAuth 2.0 + OpenID Connect),
+  and read-only catalog browsing requires no auth. Surfaced as a 500 Global portfolio
+  company and enriched from its public agent-commerce surface.
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://chill.com/cdn/shop/files/A_Marketplace_to_Help_You_Beat_Stress_and_Live_Better._Simple.png?v=1750163758
 url: https://raw.githubusercontent.com/api-evangelist/chill/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -11,9 +32,18 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-18'
 tags:
 - Company
+- Wellness
+- Supplements
+- E-commerce
+- Marketplace
+- Health
+- Agentic Commerce
+- Shopify
+- Retail
+- MCP
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -23,3 +53,38 @@ maintainers:
 common:
 - type: Website
   url: https://chill.com
+- type: Documentation
+  url: https://chill.com/llms.txt
+- type: LLMsTxt
+  url: llms/chill-llms.txt
+- type: WellKnown
+  url: well-known/chill-well-known.yml
+- type: MCPServer
+  url: mcp/chill-mcp.yml
+- type: Authentication
+  url: authentication/chill-authentication.yml
+- type: OAuthScopes
+  url: scopes/chill-scopes.yml
+- type: Conformance
+  url: conformance/chill-conformance.yml
+- type: Conventions
+  url: conventions/chill-conventions.yml
+- type: AgenticAccess
+  url: agentic-access/chill-agentic-access.yml
+- type: DomainSecurity
+  url: security/chill-domain-security.yml
+- type: Blog
+  url: https://chill.com/blogs/news
+- type: Support
+  url: https://chill.com/pages/contact
+- type: Login
+  url: https://chill.com/account/login
+- type: TermsOfService
+  url: https://chill.com/policies/terms-of-service
+- type: PrivacyPolicy
+  url: https://chill.com/policies/privacy-policy
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

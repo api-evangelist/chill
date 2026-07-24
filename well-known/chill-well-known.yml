@@ -1,0 +1,23 @@
+generated: '2026-07-18'
+method: searched
+source: live probes of https://chill.com/.well-known/*
+host: https://chill.com
+documents:
+- path: /.well-known/openid-configuration
+  status: 200
+  file: chill-openid-configuration.json
+  note: Shopify Customer Account OIDC discovery (issuer shopify.com/authentication/56172019867)
+- path: /.well-known/oauth-authorization-server
+  status: 200
+  file: chill-oauth-authorization-server.json
+  note: RFC 8414 authorization server metadata (Shopify Customer Account)
+- path: /.well-known/ucp
+  status: 200
+  file: chill-ucp.json
+  note: Universal Commerce Protocol merchant profile (UCP 2026-04-08) — MCP shopping endpoint + capabilities + payment handlers
+- path: /.well-known/security.txt
+  status: 404
+- path: /.well-known/api-catalog
+  status: 404
+- path: /.well-known/ai-plugin.json
+  status: 404

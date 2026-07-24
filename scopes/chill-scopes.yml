@@ -1,0 +1,20 @@
+generated: '2026-07-18'
+method: searched
+source: https://chill.com/.well-known/openid-configuration
+docs: https://chill.com/.well-known/openid-configuration
+schemes:
+- name: ShopifyCustomerAccountOAuth
+  source: well-known/chill-openid-configuration.json
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://shopify.com/authentication/56172019867/oauth/authorize
+    tokenUrl: https://shopify.com/authentication/56172019867/oauth/token
+scopes:
+- scope: openid
+  description: OpenID Connect authentication of the Shopify customer account
+- scope: email
+  description: Access to the customer's email address and verification status
+- scope: customer-account-api:full
+  description: Full access to the Shopify Customer Account API on behalf of the signed-in buyer
+- scope: customer-account-mcp-api:full
+  description: Full access to the Customer Account MCP API — enables agent-driven commerce (UCP) on behalf of the buyer

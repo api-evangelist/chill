@@ -1,0 +1,51 @@
+generated: '2026-07-18'
+method: searched
+status: published
+source: https://chill.com/llms.txt + https://chill.com/.well-known/ucp
+server:
+  name: chill-ucp-shopping
+  transport: http
+  protocol: mcp
+  url: https://chill.com/api/ucp/mcp
+  ucp_endpoint: https://the-chill-way-uk.myshopify.com/api/ucp/mcp
+  ucp_version: '2026-04-08'
+  supported_versions:
+  - '2026-04-08'
+  - '2026-01-23'
+  spec: https://ucp.dev/2026-04-08/specification/overview/
+  schema: https://ucp.dev/2026-04-08/services/shopping/mcp.openrpc.json
+  auth: >-
+    Read-only browsing needs no auth; transactional tools use Shopify Customer
+    Account OAuth (see authentication/chill-authentication.yml). tools/list requires
+    an agent profile URI (verified live: JSON-RPC error invalid_profile_url when omitted).
+notes: >-
+  Live hosted MCP server implementing the Universal Commerce Protocol (UCP) shopping
+  service for the Chill.com Shopify store. Checkout requires contemporaneous human
+  buyer approval; endpoint is rate-limited per IP (back off on 429).
+tools:
+- name: search_catalog
+  description: Find products matching the buyer's intent (UCP dev.ucp.shopping.catalog.search)
+  source: llms.txt + .well-known/ucp
+- name: create_cart
+  description: Add desired items to a cart (UCP dev.ucp.shopping.cart)
+  source: llms.txt + .well-known/ucp
+- name: create_checkout
+  description: Start the purchase flow (UCP dev.ucp.shopping.checkout)
+  source: llms.txt + .well-known/ucp
+- name: update_checkout
+  description: Set shipping address and method (UCP dev.ucp.shopping.fulfillment)
+  source: llms.txt + .well-known/ucp
+- name: complete_checkout
+  description: Finalize the purchase — buyer must approve payment
+  source: llms.txt + .well-known/ucp
+capabilities:
+- dev.ucp.shopping.catalog.search
+- dev.ucp.shopping.catalog.lookup
+- dev.ucp.shopping.cart
+- dev.ucp.shopping.checkout
+- dev.ucp.shopping.fulfillment
+- dev.ucp.shopping.discount
+- dev.ucp.shopping.order
+- dev.shopify.catalog
+payment_handlers:
+- com.google.pay

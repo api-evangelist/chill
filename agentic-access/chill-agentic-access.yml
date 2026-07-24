@@ -1,0 +1,29 @@
+generated: '2026-07-18'
+method: searched
+source: https://chill.com/llms.txt + https://chill.com/.well-known/ucp
+audience: null
+summary: >-
+  Chill.com publishes real agent-access guidance: an llms.txt agent guide plus a
+  Universal Commerce Protocol (UCP) merchant profile and MCP endpoint. This captures
+  the provider's own stated execution contract for AI agents, not a derived one.
+access_classes:
+- class: connected
+  consequence: read
+  operations: [browse products, product JSON, collection JSON, catalog search/lookup]
+  auth_required: false
+  note: Read-only browsing needs no authentication.
+- class: acting
+  consequence: physical
+  operations: [create_cart, create_checkout, update_checkout, complete_checkout]
+  auth_required: true
+  auth: Shopify Customer Account OAuth (customer-account-mcp-api:full)
+  human_in_the_loop: required
+  note: >-
+    Checkout / payment completion requires explicit, contemporaneous buyer approval
+    (buyer-approval invariant). Agents unable to obtain approval at payment time must
+    route through the Shop skill (https://shop.app/SKILL.md) / Shop Pay.
+controls:
+  buyer_approval_invariant: true
+  rate_limited: true
+  rate_limit_signal: HTTP 429
+  recommended_skill: https://shop.app/SKILL.md
