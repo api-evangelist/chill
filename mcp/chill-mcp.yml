@@ -14,14 +14,12 @@ server:
   - '2026-01-23'
   spec: https://ucp.dev/2026-04-08/specification/overview/
   schema: https://ucp.dev/2026-04-08/services/shopping/mcp.openrpc.json
-  auth: >-
-    Read-only browsing needs no auth; transactional tools use Shopify Customer
-    Account OAuth (see authentication/chill-authentication.yml). tools/list requires
-    an agent profile URI (verified live: JSON-RPC error invalid_profile_url when omitted).
-notes: >-
-  Live hosted MCP server implementing the Universal Commerce Protocol (UCP) shopping
-  service for the Chill.com Shopify store. Checkout requires contemporaneous human
-  buyer approval; endpoint is rate-limited per IP (back off on 429).
+  auth: 'Read-only browsing needs no auth; transactional tools use Shopify Customer Account OAuth (see
+    authentication/chill-authentication.yml). tools/list requires an agent profile URI (verified live:
+    JSON-RPC error invalid_profile_url when omitted).'
+notes: Live hosted MCP server implementing the Universal Commerce Protocol (UCP) shopping service for
+  the Chill.com Shopify store. Checkout requires contemporaneous human buyer approval; endpoint is rate-limited
+  per IP (back off on 429).
 tools:
 - name: search_catalog
   description: Find products matching the buyer's intent (UCP dev.ucp.shopping.catalog.search)
@@ -49,3 +47,11 @@ capabilities:
 - dev.shopify.catalog
 payment_handlers:
 - com.google.pay
+deployment:
+  mode: remote
+  endpoint: https://chill.com/api/ucp/mcp
+  verified: probed
+  probe: live
+  tools: 13
+  checked: '2026-08-12'
+  source: catalog MCP census
