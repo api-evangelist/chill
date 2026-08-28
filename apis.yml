@@ -10,6 +10,17 @@ description: >-
   End-user authentication is Shopify Customer Accounts (OAuth 2.0 + OpenID Connect),
   and read-only catalog browsing requires no auth. Surfaced as a 500 Global portfolio
   company and enriched from its public agent-commerce surface.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: self-serve
